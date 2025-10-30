@@ -1,0 +1,45 @@
+PE :
+- biar gabisa sudo su 
+> taruh di /etc/sudoers -> pake visudo
+nama_user ALL=(ALL) ALL, !/bin/su
+
+- biar ada binary celah Privilege escalation kayak gtfobins
+> taruh di /etc/sudoers
+NOPASSWD: /usr/bin/find
+> jadi
+nama_user ALL=(ALL) ALL, !/bin/su, NOPASSWD: /usr/bin/find
+> atau di user nya aja biar gausah set anti sudo su
+smith ALL=(ALL) NOPASSWD: /usr/bin/find
+
+- cara efisien
+> ternyata gausah nambahin nama_user
+> cari aja bagian %sudo nah isi aja disitu
+> misal gini
+%sudo   ALL=(ALL:ALL) ALL, !/bin/su,  NOPASSWD: /usr/bin/find
+> gini aja lebih simple
+
+
+
+FTP :
+- download dulu -> sudo apt install vsftpd -y
+- add user ftp -> sudo adduser ftpuser => sama add passwordnya
+- config biar gabisa pindah2 -> sudo vim /etc/vsftpd.conf
+chroot_local_user=YES
+allow_writeable_chroot=YES
+- sudo systemctl restart vsftpd
+- sudo systemctl status vsftpd
+- coba dulu
+
+
+Apache:
+- download dulu -> sudo apt install apache2
+- sudo systemctl start apache2
+- sudo systemctl enable apache2
+- sudo systemctl status apache2
+- /var/www/html harusnya bisa dipake taruh aja folder /secret atau index.html disitu
+
+
+
+Biar mesin enteng sebelum di export
+- sudo dd if=/dev/zero of=/EMPTY bs=1M
+- sudo rm -f /EMPTY

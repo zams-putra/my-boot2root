@@ -1,0 +1,111 @@
+fetch awal gini -> const res = await fetch("http://127.0.0.1:8080/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: uname,
+                    password: passwd
+                })
+            });
+
+
+
+
+gagal dan cors terus -> next ganti pake ip servernya aja ->
+
+const res = await fetch("http://192.168.x.xx:8080/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: uname,
+                    password: passwd
+                })
+            });
+
+
+
+
+backend implement cors ->  
+
+        w.Header().Set("Access-Control-Allow-Origin", "*")
+        w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+        w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+        if r.Method == "OPTIONS" {
+                w.WriteHeader(http.StatusOK)
+                return
+        }
+
+
+
+
+rewrite ke express mau ke php karna ini 
+untung ada solusi
+
+
+
+
+
+
+-> bonus solved baru
+- bisa nyesuain ip ternyata
+- tinggal pake window.location.origin
+
+const ip = window.location.origin
+
+- terus gini aja
+await fetch(`http://${ip}:8080/login`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Final Solution
+> allow origin udah semua udah semua
+> pakai reverse proxy : ngenamain server backend nya gitu loh biar ga 127.0.0.1
+
+- apachectl -M | grep proxy
+> kalau module2 error servername: tambahin dulu /etc/apache2/apache2.conf nya gini
+> ServerName localhost -> sudo systemctl restart apache2
+- apachectl -M | grep proxy
+> kalau ga muncul apa2 -> sudo a2enmod proxy proxy_http -> sudo systemctl restart apache2
+- set reverse prox di  /etc/apache2/sites-available/000-default.conf
+
+
+<VirtualHost *:80>
+    ServerName localhost  # Ganti dengan domain jika pakai
+
+    # Atur agar frontend bisa diakses dari /var/www/html
+    DocumentRoot /var/www/html
+    <Directory "/var/www/html">
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Reverse Proxy untuk backend API
+    ProxyPass "/api/" "http://127.0.0.1:8080/" -> jalannya back end dimana
+    ProxyPassReverse "/api/" "http://127.0.0.1:8080/" -> response backend sesuai frontend
+
+    # Log (opsional)
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+- sudo a2enmod proxy proxy_http -> sudo systemctl restart apache2
+
+
+
+
+- set front end fetch nya jadi gini : const res = await fetch("/api/login")
+- done

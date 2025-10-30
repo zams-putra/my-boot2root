@@ -1,0 +1,26 @@
+- build duls
+> go build -o namaserver main.go
+
+- hosting backend golang di /systemd/system
+
+> sudo vim /etc/systemd/system/namaservice.service
+
+> config :
+[Unit]
+Description=Go Server for CTF
+After=network.target
+
+[Service]
+ExecStart=/opt/server/namaservice
+Restart=always
+User=root
+WorkingDirectory=/opt/server
+Environment="PORT=8080"
+
+[Install]
+WantedBy=multi-user.target
+
+
+> systemctl enable namaservice
+> systemctl start namaservice
+> systemctl status namaservice
