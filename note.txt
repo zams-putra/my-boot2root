@@ -1,1 +1,5 @@
 sebus
+- ini ms defender ganggu jir, otomatis hapus2 in readme dikira virus
+> ke virus and protection -> manage settings -> exclusion -> kasih path spesifik yg di kecuali kan
+- soon :
+> coba submit machine di htb, dia ada bountynya
