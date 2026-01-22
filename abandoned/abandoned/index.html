@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>—</title>
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #101014;
+      --text-hidden: #0e0e10; /* hampir sama dengan background */
+      --text-reveal: #bdbdbd;
+      --fog: rgba(255,255,255,0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text-hidden);
+      font-family: 'Segoe UI', monospace;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, var(--fog), transparent 40%),
+        radial-gradient(circle at 70% 80%, var(--fog), transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .center-text {
+      max-width: 700px;
+      text-align: center;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      transition: color 1.5s ease;
+    }
+
+    .center-text:hover {
+      color: var(--text-reveal);
+    }
+
+    .whisper {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+  
+
+    .void {
+      background: linear-gradient(180deg, var(--bg), #000);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.75rem;
+      color: var(--text-hidden);
+    }
+
+    footer:hover {
+      color: var(--text-reveal);
+    }
+
+  
+    @keyframes drift {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .drift {
+      animation: drift 12s ease-in-out infinite;
+    }
+
+
+    .scene {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .scene img {
+      width: 100%;
+      max-width: 720px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      filter: brightness(0.5) grayscale(0.4);
+      transition: filter 1.2s ease, transform 1.2s ease;
+    }
+
+    .scene img:hover {
+      filter: brightness(0.85) grayscale(0);
+      transform: scale(1.015);
+    }
+
+    .caption {
+      max-width: 600px;
+      text-align: center;
+      line-height: 1.8;
+      letter-spacing: 0.06em;
+      color: var(--text-hidden);
+      transition: color 1.5s ease, opacity 1.5s ease;
+      opacity: 0.85;
+    }
+
+    .scene:hover .caption {
+      color: var(--text-reveal);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <div class="center-text drift">
+      <p>this place was never meant to be found</p>
+      <p class="whisper">but you are here</p>
+    </div>
+  </section>
+
+
+  <section class="void">
+    <div class="center-text">
+      <p>the lights are still on</p>
+      <p>no one remembers why</p>
+      <br />
+      <p class="whisper">hover slowly</p>
+    </div>
+  </section>
+
+
+  <section class="void">
+    <div class="scene">
+      <img src="assets/img/liminal1.jpg" alt="liminal 1" />
+      <p class="caption">the hallway keeps its lights on<br>as if someone is still expected to return</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="scene">
+      <img src="assets/img/liminal2.jpg" alt="liminal 2" />
+      <p class="caption">this room has forgotten its purpose<br>only the echo remains</p>
+    </div>
+  </section>
+
+  <section class="void">
+    <div class="scene">
+      <img src="assets/img/liminal3.jpg" alt="liminal 3" />
+      <p class="caption">time moves differently here<br>nothing rushes to leave</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="scene">
+      <img src="assets/img/liminal4.jpg" alt="liminal 4" />
+      <p class="caption">you feel like you've been here before<br>but never long enough to remember why</p>
+    </div>
+  </section>
+
+  <section class="void">
+    <div class="scene">
+      <img src="assets/img/liminal5.jpg" alt="liminal 5" />
+      <p class="caption">the silence is not empty<br>it is watching</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="scene">
+      <img src="assets/img/liminal6.jpg" alt="liminal 6" />
+      <p class="caption">every door promises meaning<br>none of them keep it</p>
+    </div>
+  </section>
+
+  <section class="void">
+    <div class="scene">
+      <img src="assets/img/liminal7.jpg" alt="liminal 7" />
+      <p class="caption">this place does not miss you<br>but it notices when you are gone</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="scene">
+      <img src="assets/img/liminal8.jpg" alt="liminal 8" />
+      <p class="caption">loneliness settles here<br>like dust on unused furniture</p>
+    </div>
+  </section>
+
+  <section class="void">
+    <div class="scene">
+      <img src="assets/img/liminal9.jpg" alt="liminal 9" />
+      <p class="caption">you were never invited<br>yet the room made space for you</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="scene">
+      <img src="assets/img/liminal10.jpg" alt="liminal 10" />
+      <p class="caption">nothing happens here<br>and that is the point</p>
+    </div>
+  </section>
+
+
+  <section class="void">
+    <div class="center-text">
+      <p>nothing ends here</p>
+      <p class="whisper">it just stays</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>—</p>
+  </footer>
+
+  <script>
+
+    const texts = document.querySelectorAll('.center-text');
+
+    window.addEventListener('scroll', () => {
+      texts.forEach(t => {
+        const rect = t.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7) {
+          t.style.color = 'var(--text-reveal)';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

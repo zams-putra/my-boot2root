@@ -50,3 +50,16 @@ mengambil tema seorang yang suka mengkoleksi karakter2 waifu nya dalam game maup
 - docker
 ## Link
 [link disini](https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182)
+
+# 5 - Abandoned (Windows)
+## Desc
+mesin ke 5 ku, dengan IIS web server sebagai foothold dan ada privesc berupa ACL abuse,
+ini mesin Windows Active Directory pertama ku, walaupun belum ada domain joined nya, 
+mengambil tema liminal space, karena aku juga menyukai hal2 liminal space, mendung, dan hal hal gelap lainnya
+
+## Tech Stack
+- HTML
+- CSS
+- Javascript
+## Link
+[link disini](https://github.com/zams-putra/my-boot2root/tree/main/abandoned)
