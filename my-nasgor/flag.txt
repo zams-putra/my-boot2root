@@ -1,5 +1,0 @@
-user: THM{ef24b324f3de13c6fc62cacfe2ba6fe5}
-root: THM{fa0712037e35cc38bbff0863f349cb26}
-
-
-A boot2root machine. Can you get the flag, king?

@@ -18,7 +18,7 @@ export default function Login({ setValid }) {
         console.log(uname, passwd)
 
         try {
-            const res = await fetch(`http://${ip}:8080/login`, {
+            const res = await fetch(`/api/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

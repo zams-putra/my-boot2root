@@ -1,0 +1,5 @@
+- run di shell windows compile nya (kalau bash):
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o backend
+
+- kalau powershell gini:
+$env:GOOS="linux"; $env:GOARCH="amd64"; $env:CGO_ENABLED="0"; go build -o backend
