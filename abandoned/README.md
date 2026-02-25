@@ -1,6 +1,34 @@
 # Machine - Abandoned 
 ![img](https://raw.githubusercontent.com/zams-putra/my-boot2root/refs/heads/main/abandoned/img.png)
 
+# Attack Surfaces
+## Reconnaissance
+- Information Disclosure via robots.txt
+- Sensitive File Exposure via .env / env.txt (LDAP credentials leak)
+- Directory Browsing Enabled (IIS misconfiguration)
+
+## Web Application
+- Credential Leak via Exposed Environment File (LDAP_BIND_USER, LDAP_BIND_PASS)
+
+## Active Directory
+- LDAP Enumeration dengan leaked credentials (abandoned_svc:emptyroom)
+- Kerberoasting → TGS Hash Extraction (emptyplace_svc)
+- Kerberos Hash Cracking (hashcat mode 13100)
+- ACL Abuse - GenericAll on Domain Admins (emptyplace_svc → Domain Admins)
+- AdminSDHolder Persistence (ACL abuse yang persistent lewat SDProp)
+
+## Lateral Movement
+- WinRM Access via cracked Kerberos credentials
+- Evil-WinRM Login (emptyplace_svc:darkness)
+
+## Privilege Escalation
+- ACL Abuse - GenericAll on Administrator object → full takeover
+
+# . 
+
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/abandoned.png)
+
+
 # 1 - Specs and Details
 ## spek :
 

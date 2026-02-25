@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  nasgor:
+    build: .
+    container_name: my-nasgor
+    ports:
+      - "80:80"
+      - "21:21"
+      - "8080:8080"
+    restart: unless-stopped

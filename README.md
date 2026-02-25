@@ -51,7 +51,7 @@ mengambil tema seorang yang suka mengkoleksi karakter2 waifu nya dalam game maup
 ## Link
 [link disini](https://github.com/zams-putra/my-boot2root/tree/main/CVE-2025-55182)
 
-# 5 - Abandoned (Windows)
+# 5 - Abandoned (Windows Active Directory)
 ## Desc
 mesin ke 5 ku, dengan IIS web server sebagai foothold dan ada privesc berupa ACL abuse,
 ini mesin Windows Active Directory pertama ku, walaupun belum ada domain joined nya, 
@@ -63,3 +63,20 @@ mengambil tema liminal space, karena aku juga menyukai hal2 liminal space, mendu
 - Javascript
 ## Link
 [link disini](https://github.com/zams-putra/my-boot2root/tree/main/abandoned)
+
+# 6 - Peak (Windows Standalone)
+## Desc
+mesin ke 6 ku, dengan Foothold berupa vuln2 dari OWASP yaitu sqli, jwt attack, IDOR, command injection
+dan ada privesc berupa SeImpersonatePrivilege,
+ini mesin Windows Standalone pertama ku, 
+mengambil tema Peak male content seperti spinosaurus, testosterone, dragonball dan lain lain
+
+## Tech Stack
+- ReactJS
+- React Router
+- TailwindCSS
+- Motion
+- Go server for API backend
+
+## Link
+[link disini](https://github.com/zams-putra/my-boot2root/tree/main/peak)
