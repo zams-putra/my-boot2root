@@ -1,0 +1,9 @@
+1. step :
+- go get github.com/mattn/go-sqlite3
+
+
+
+X. goal :
+1. user auth login -> stored xss cookie admin steal -> admin can fill form vuln for SSTI go lang  -> revshell being user1
+2. pivoting with chisel -> ss tulnp -> other web exploit -> being user2
+3. privesc as user2

@@ -1,0 +1,6 @@
+setup utama :
+- ini linux aja env nya
+- pivoting mesin
+- bikin 2 service website
+- nanti ngasih hostnya jangan 0.0.0.0:6060, tapi pakai 127.0.0.1:6060
+- jadi attacker harus tunelling ssh -l, atau pakai chisel buat leverage escalation 
