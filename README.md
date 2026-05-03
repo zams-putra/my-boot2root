@@ -80,3 +80,19 @@ mengambil tema Peak male content seperti spinosaurus, testosterone, dragonball d
 
 ## Link
 [link disini](https://github.com/zams-putra/my-boot2root/tree/main/peak)
+
+# 7 - Cave (Linux Pivot)
+## Desc
+mesin ke 7 ku, ini mesin pivoting pertama ku dengan Foothold berupa vuln2 dari OWASP yaitu XSS lead to steal cookie, LFI with hardening
+, lalu pivoting service lain dengan vuln CVE-2018-7600
+dan ada privesc berupa SUID ,binary
+mengambil tema manusia purba dengan roastingan roastingan nya
+
+## Tech Stack
+- ReactJS
+- React Router
+- Go Server for API backend
+- Drupal CMS
+
+## Link
+[link disini](https://github.com/zams-putra/my-boot2root/tree/main/cave)
