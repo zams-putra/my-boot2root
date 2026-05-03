@@ -5,18 +5,31 @@
 # Attack Surfaces
 
 ## Reconnaissance
-- Directory Browsing Enabled (IIS misconfiguration)
-- API Endpoint Enumeration (/test, /login, /admin, /admin/ping)
+- Nmap scan → port 80 (HTTP), port 22 (SSH) terbuka
+- Web enumeration → register/login page, roasting wall, admin panel
+- Hint di roasting page: "admin always visiting this page silently"
 
 ## Web Application
-- SQL Injection pada Login Page (known username, blacklist bypass dengan '-- atau '/**/--)
-- JWT Weak Secret (brute force hashcat mode 16500 → dragonballz dari rockyou)
-- JWT Algorithm Confusion / Claim Tampering (ubah role user → admin via jwt.io)
-- IDOR pada /admin/users/{id} (akses data user lain setelah JWT forged)
-- Command Injection pada /admin/ping via host parameter (127.0.0.1 & whoami)
+- XSS Stored via dangerouslySetInnerHTML pada roasting wall (r.comment tidak disanitasi)
+- Bot admin otomatis visit /roasting tiap 1 menit → cookie hijack via XSS
+- JWT Algorithm Confusion — jwt.ParseWithClaims tanpa validasi signing method → forge isAdmin:true
+- LFI pada /api/admin/logs?file= (authenticated admin)
+- LFI hardening bypass: ....// → residual ../ setelah ReplaceAll
+- /etc/passwd leak → enumerate users (cave_man, tribe_leader)
+- id_rsa leak via LFI → /home/cave_man/.ssh/id_rsa
+- SSH passphrase cracking (ssh2john + john + rockyou → "teamo")
+
+## Pivoting
+- Login SSH as cave_man → discover port 6060 (localhost only)
+- SSH local port forwarding: ssh -L 6060:127.0.0.1:6060
+- Internal Drupal 7.57 → CVE-2018-7600 (Drupalgeddon2) unauthenticated RCE
+- www-data shell → read settings.php → tribe_leader password leak
 
 ## Privilege Escalation
-- SeImpersonatePrivilege Abuse (via PrintSpoofer / GodPotato as spino)
+- Lateral move: www-data → tribe_leader (password reuse dari settings.php)
+- SUID binary enum: find / -perm -u=s -type f
+- /usr/local/bin/bash_suid dengan SUID bit + group tribe_leader
+- bash_suid -p → root shell
 
 # .
 
