@@ -20,7 +20,7 @@
 
 # .
 
-![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/peak.png)
+![img](https://raw.githubusercontent.com/zams-putra/portfolio/refs/heads/main/public/img/cave.png)
 
 
 # 1. Creds
