@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"log"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type Config struct {
@@ -18,9 +18,11 @@ func Load() *Config {
 }
 
 func InitDB() *sql.DB {
-	db, err := sql.Open("sqlite3", "./data.db")
+	log.Println("awal connect")
+	db, err := sql.Open("sqlite", "./data.db")
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("akhir connect")
 	return db
 }

