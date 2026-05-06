@@ -12,7 +12,7 @@
 ## Web Application
 - XSS Stored via dangerouslySetInnerHTML pada roasting wall (r.comment tidak disanitasi)
 - Bot admin otomatis visit /roasting tiap 1 menit → cookie hijack via XSS
-- JWT Algorithm Confusion — jwt.ParseWithClaims tanpa validasi signing method → forge isAdmin:true
+- Cookie admin didapat → akses admin panel sebagai admin
 - LFI pada /api/admin/logs?file= (authenticated admin)
 - LFI hardening bypass: ....// → residual ../ setelah ReplaceAll
 - /etc/passwd leak → enumerate users (cave_man, tribe_leader)
